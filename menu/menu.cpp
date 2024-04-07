@@ -966,22 +966,22 @@ void MainMenuUpdateText(s32 menu_index)
 {
 	switch (menu_index) {
 		case MENU_ROM_SELECT:
-			strcpy(mMenuText[menu_index], "Select ROM");
+			strcpy(mMenuText[menu_index], "选择ROM");
 			break;
 		case SAVESTATE_MENU_LOAD:
-			strcpy(mMenuText[menu_index], "Load state");
+			strcpy(mMenuText[menu_index], "加载状态");
 			break;
 		case SAVESTATE_MENU_SAVE:
-			strcpy(mMenuText[menu_index], "Save state");
+			strcpy(mMenuText[menu_index], "保存状态");
 			break;
 		case MENU_RESET_GAME:
-			strcpy(mMenuText[menu_index], "Reset");
+			strcpy(mMenuText[menu_index], "重置");
 			break;
 		case MENU_EXIT_APP:
-			strcpy(mMenuText[menu_index], "Exit");
+			strcpy(mMenuText[menu_index], "退出");
 			break;
 		case MENU_SETTINGS:
-			strcpy(mMenuText[menu_index], "Settings");
+			strcpy(mMenuText[menu_index], "设置");
 			break;
 	}
 }
