@@ -54,20 +54,6 @@ $(TARGET) : $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS) -o $@
 	$(STRIP) $(TARGET)
 
-ipk: all
-	@rm -rf /tmp/.pocketsnes-ipk/ && mkdir -p /tmp/.pocketsnes-ipk/root/home/retrofw/emus/pocketsnes /tmp/.pocketsnes-ipk/root/home/retrofw/apps/gmenu2x/sections/emulators /tmp/.pocketsnes-ipk/root/home/retrofw/apps/gmenu2x/sections/emulators.systems
-	@cp dist/PocketSNES.dge dist/PocketSNES.man.txt dist/PocketSNES.png dist/backdrop.png /tmp/.pocketsnes-ipk/root/home/retrofw/emus/pocketsnes
-	@cp dist/pocketsnes.lnk /tmp/.pocketsnes-ipk/root/home/retrofw/apps/gmenu2x/sections/emulators
-	@cp dist/snes.pocketsnes.lnk /tmp/.pocketsnes-ipk/root/home/retrofw/apps/gmenu2x/sections/emulators.systems
-	# @sed "s/^Version:.*/Version: $$(date +%Y%m%d)/" dist/control > /tmp/.pocketsnes-ipk/control
-	@sed "s/^Version:.*/Version: 20190304/" dist/control > /tmp/.pocketsnes-ipk/control
-	@cp dist/conffiles /tmp/.pocketsnes-ipk/
-	# echo -e "#!/bin/sh\nmkdir -p /home/retrofw/profile/pocketsnes; exit 0" > /tmp/.pocketsnes-ipk/preinst
-	# chmod +x /tmp/.gmenu-ipk/postinst /tmp/.pocketsnes-ipk/preinst
-	@tar --owner=0 --group=0 -czvf /tmp/.pocketsnes-ipk/control.tar.gz -C /tmp/.pocketsnes-ipk/ control conffiles #preinst
-	@tar --owner=0 --group=0 -czvf /tmp/.pocketsnes-ipk/data.tar.gz -C /tmp/.pocketsnes-ipk/root/ .
-	@echo 2.0 > /tmp/.pocketsnes-ipk/debian-binary
-	@ar r dist/pocketsnes.ipk /tmp/.pocketsnes-ipk/control.tar.gz /tmp/.pocketsnes-ipk/data.tar.gz /tmp/.pocketsnes-ipk/debian-binary
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -88,5 +74,4 @@ opk: all
 	pocketsnes/pocketsnes.opk \
 	-all-root -noappend -no-exports -no-xattrs
 
-clean :
-	rm -f $(OBJS) pocketsnes/pocketsnes.ipk
+
