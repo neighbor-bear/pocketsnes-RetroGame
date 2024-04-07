@@ -8,8 +8,8 @@
 
 TARGET = pocketsnes/pocketsnes.dge
 
-# CHAINPREFIX   := /opt/mipsel-RetroFW-linux-uclibc
-# CROSS_COMPILE := $(CHAINPREFIX)/usr/bin/mipsel-linux-
+CHAINPREFIX   := /opt/mipsel-RetroFW-linux-uclibc
+CROSS_COMPILE := $(CHAINPREFIX)/usr/bin/mipsel-linux-
 
 CC  := $(CROSS_COMPILE)gcc
 CXX := $(CROSS_COMPILE)g++
